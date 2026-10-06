@@ -1,116 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Senior Citizen Discount Guide</title>
-  <style>
-    :root{
-      --green:#0f5f4a;--green2:#174f43;--cream:#fbf7ed;--gold:#c9a86a;--text:#17322b;--muted:#66756f;--white:#fff;--soft:#edf5f1;
-    }
-    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f6f1e5 0%,#fff 35%,#eef5f2 100%);color:var(--text)}
-    button,input,select{font:inherit}.app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:88px}.hero{padding:28px 20px 18px;background:linear-gradient(135deg,var(--green),#1f7962);color:white;border-radius:0 0 34px 34px;box-shadow:0 14px 30px rgba(0,0,0,.12)}
-    .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;font-weight:700}.hero h1{font-size:34px;line-height:1.05;margin:8px 0 8px}.hero p{font-size:17px;line-height:1.45;margin:0;max-width:620px}.badge{display:inline-flex;gap:8px;align-items:center;margin-top:16px;background:rgba(255,255,255,.15);padding:10px 12px;border-radius:999px;font-weight:700}
-    .section{padding:22px 16px}.section h2{font-size:24px;margin:0 0 14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:var(--white);border:1px solid rgba(15,95,74,.12);border-radius:22px;padding:18px;box-shadow:0 8px 22px rgba(23,50,43,.08);cursor:pointer;transition:.2s}.card:active{transform:scale(.98)}.icon{font-size:34px}.card h3{font-size:19px;margin:10px 0 6px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.4}.full{grid-column:1/-1}.highlight{background:linear-gradient(135deg,#fffaf0,#f7ecd7);border-color:#dec28d}.calc{background:white;border-radius:24px;padding:18px;box-shadow:0 8px 22px rgba(23,50,43,.08)}
-    label{display:block;font-weight:700;margin:12px 0 6px}.field{width:100%;padding:14px;border:2px solid #dce7e1;border-radius:14px;background:#fff;font-size:18px}.btn{width:100%;border:0;border-radius:16px;padding:15px 18px;background:var(--green);color:#fff;font-size:18px;font-weight:800;margin-top:14px}.result{margin-top:14px;padding:16px;background:var(--soft);border-radius:16px;display:none}.result strong{font-size:24px}.sheet{position:fixed;inset:0;background:rgba(7,28,23,.45);display:none;align-items:flex-end;z-index:10}.sheet.open{display:flex}.panel{width:100%;max-height:84vh;overflow:auto;background:#fff;border-radius:28px 28px 0 0;padding:22px 18px 34px;box-shadow:0 -12px 30px rgba(0,0,0,.16)}.drag{width:54px;height:5px;border-radius:999px;background:#d3d9d6;margin:0 auto 16px}.panel h2{font-size:27px;margin:0 0 8px}.panel .lead{color:var(--muted);margin-bottom:18px;line-height:1.5}.item{padding:14px 0;border-bottom:1px solid #edf0ee}.item:last-child{border-bottom:0}.item h4{margin:0 0 5px;font-size:18px}.item p{margin:0;color:#596963;line-height:1.45}.tag{display:inline-block;margin-top:7px;background:#edf5f1;color:var(--green);padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800}.close{position:absolute;right:18px;border:0;background:#eef3f1;border-radius:999px;width:40px;height:40px;font-size:22px}.bottom{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid #e7ece9;display:flex;justify-content:center;z-index:5}.bottom .inner{max-width:760px;width:100%;display:grid;grid-template-columns:repeat(3,1fr)}.navbtn{border:0;background:transparent;padding:12px 8px 10px;color:#5b6a64;font-weight:700}.navbtn span{display:block;font-size:20px;margin-bottom:3px}.notice{font-size:13px;color:#6c7874;line-height:1.45;margin-top:10px}.search{display:flex;gap:8px}.search input{flex:1}.search button{width:auto;margin:0;padding:0 18px}.mini-list{margin-top:10px}.mini-list div{padding:10px 0;border-bottom:1px solid #edf0ee}.mini-list div:last-child{border-bottom:0}
-    @media(min-width:700px){.hero{margin-top:18px;border-radius:34px}.app{padding-left:14px;padding-right:14px}.grid{grid-template-columns:repeat(3,1fr)}.full{grid-column:span 3}.hero h1{font-size:42px}}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digital Senior Citizen Booklet</title>
+<style>
+:root{
+  --green:#174d3b;
+  --green2:#21634d;
+  --cream:#fbf7ee;
+  --gold:#c7a55b;
+  --ink:#1e2a24;
+  --muted:#68746e;
+  --white:#ffffff;
+  --danger:#a83a3a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+}
+.app{
+  max-width:520px;
+  margin:0 auto;
+  min-height:100vh;
+  background:var(--cream);
+}
+header{
+  background:var(--green);
+  color:white;
+  padding:18px 18px 20px;
+  position:sticky; top:0; z-index:10;
+}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-size:18px;font-weight:800;line-height:1.2}
+.sub{font-size:12px;opacity:.85;margin-top:2px}
+.status{
+  background:#e9f5ee;color:#174d3b;border-radius:999px;
+  padding:7px 10px;font-weight:800;font-size:12px;
+}
+main{padding:16px}
+.hero{
+  background:linear-gradient(135deg,#fff,#f3ead5);
+  border:1px solid #e8ddc4;
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 8px 28px rgba(45,55,48,.08);
+}
+.idrow{display:flex;gap:14px;align-items:center}
+.avatar{
+  width:72px;height:72px;border-radius:16px;background:#dbe7df;
+  display:flex;align-items:center;justify-content:center;
+  font-size:30px;font-weight:800;color:var(--green)
+}
+.name{font-size:22px;font-weight:900;margin:0}
+.meta{font-size:14px;color:var(--muted);margin-top:4px}
+.qr{
+  margin-top:16px;
+  background:white;border:2px dashed var(--green);
+  border-radius:16px;padding:16px;text-align:center;
+}
+.qrbox{
+  width:160px;height:160px;margin:0 auto 10px;
+  display:grid;place-items:center;background:
+  linear-gradient(90deg,#111 12px,transparent 12px) 0 0/24px 24px,
+  linear-gradient(#111 12px,transparent 12px) 0 0/24px 24px,
+  linear-gradient(90deg,transparent 12px,#111 12px) 12px 12px/24px 24px,
+  linear-gradient(transparent 12px,#111 12px) 12px 12px/24px 24px;
+  border:10px solid white;
+}
+.qrlabel{font-size:16px;font-weight:900}
+.qrhelp{font-size:13px;color:var(--muted);margin-top:4px}
+.grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;
+}
+.bigbtn{
+  border:0;border-radius:18px;padding:18px 12px;
+  min-height:104px;background:white;
+  box-shadow:0 6px 18px rgba(45,55,48,.08);
+  font-size:17px;font-weight:900;color:var(--ink);
+  cursor:pointer;border:1px solid #eee3ca;
+}
+.bigbtn span{display:block;font-size:28px;margin-bottom:8px}
+.bigbtn.primary{background:var(--green);color:white;border-color:var(--green)}
+.section{margin-top:20px}
+.section h2{font-size:18px;margin:0 0 10px}
+.card{
+  background:white;border:1px solid #eee3ca;border-radius:18px;
+  padding:14px 16px;margin-bottom:10px;
+}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.amount{font-weight:900;font-size:17px}
+.small{font-size:13px;color:var(--muted);margin-top:4px}
+.tag{
+  padding:6px 9px;border-radius:999px;background:#edf5f0;
+  color:var(--green);font-size:12px;font-weight:800;white-space:nowrap
+}
+.panel{
+  display:none;position:fixed;inset:0;background:var(--cream);z-index:20;
+  max-width:520px;margin:auto;overflow:auto;
+}
+.panel.active{display:block}
+.panel-head{
+  background:var(--green);color:white;padding:18px;position:sticky;top:0;
+  display:flex;align-items:center;gap:12px;z-index:2
+}
+.back{
+  background:white;color:var(--green);border:0;border-radius:12px;
+  padding:10px 12px;font-weight:900;cursor:pointer
+}
+.panel-body{padding:16px}
+.option{
+  background:white;border:1px solid #eee3ca;border-radius:18px;
+  padding:16px;margin-bottom:12px
+}
+.option h3{margin:0 0 6px;font-size:18px}
+.input{
+  width:100%;padding:14px;border-radius:14px;border:1px solid #d9d1c0;
+  font-size:18px;margin-top:8px;background:white
+}
+.action{
+  width:100%;border:0;border-radius:16px;padding:16px;
+  background:var(--green);color:white;font-size:18px;font-weight:900;cursor:pointer
+}
+.secondary{
+  background:#fff;color:var(--green);border:2px solid var(--green)
+}
+.notice{
+  background:#fff6dc;border:1px solid #ead398;border-radius:14px;
+  padding:12px;font-size:14px;margin-bottom:14px
+}
+.footer{
+  text-align:center;color:var(--muted);font-size:12px;padding:22px 10px 28px
+}
+@media (min-width:700px){
+  body{background:#e8efe9}
+  .app{box-shadow:0 0 40px rgba(0,0,0,.08)}
+}
+</style>
 </head>
 <body>
 <div class="app">
-  <header class="hero">
-    <div class="eyebrow">Senior Citizen Discount App</div>
-    <h1>Know what you can avail.</h1>
-    <p>Quick access to common senior citizen discounts for meals, medicines, groceries and other essential purchases.</p>
-    <div class="badge">👴👵 Senior-friendly • Large text • Easy tap</div>
-  </header>
+<header>
+  <div class="header-row">
+    <div>
+      <div class="brand">DIGITAL SENIOR CITIZEN BOOKLET</div>
+      <div class="sub">Simple • Secure • Easy to Use</div>
+    </div>
+    <div class="status">ACTIVE</div>
+  </div>
+</header>
 
-  <section class="section" id="home">
-    <h2>Choose a category</h2>
-    <div class="grid">
-      <div class="card" onclick="openSheet('food')"><div class="icon">🍽️</div><h3>Food & Meals</h3><p>Restaurants, fast food and qualified meal purchases.</p></div>
-      <div class="card" onclick="openSheet('medicine')"><div class="icon">💊</div><h3>Medicines</h3><p>Prescription medicines and pharmacy purchases.</p></div>
-      <div class="card" onclick="openSheet('grocery')"><div class="icon">🛒</div><h3>Groceries</h3><p>Basic necessities and prime commodities.</p></div>
-      <div class="card" onclick="openSheet('id')"><div class="icon">🪪</div><h3>What to Present</h3><p>See the usual proof or documents needed.</p></div>
-      <div class="card" onclick="openSheet('tips')"><div class="icon">✅</div><h3>Before Paying</h3><p>Simple reminders before you ask for a discount.</p></div>
-      <div class="card highlight" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})"><div class="icon">🧮</div><h3>Discount Calculator</h3><p>Estimate a 20% discount quickly.</p></div>
+<main>
+  <section class="hero">
+    <div class="idrow">
+      <div class="avatar">KD</div>
+      <div>
+        <p class="name">Kimberly Daria</p>
+        <div class="meta">Senior Citizen ID: SC-2026-00125</div>
+        <div class="meta">City / Municipality: Bacoor</div>
+      </div>
+    </div>
+
+    <div class="qr">
+      <div class="qrbox" aria-label="Demo QR code"></div>
+      <div class="qrlabel">SHOW THIS QR TO THE SELLER</div>
+      <div class="qrhelp">Seller scans this before applying the senior citizen discount.</div>
     </div>
   </section>
 
-  <section class="section" id="calculator">
-    <h2>Discount Calculator</h2>
-    <div class="calc">
-      <label for="amount">Purchase amount</label>
-      <input class="field" id="amount" type="number" inputmode="decimal" placeholder="₱ 0.00" />
-      <label for="rate">Discount rate</label>
-      <select class="field" id="rate"><option value="20">20%</option><option value="5">5%</option></select>
-      <button class="btn" onclick="calculate()">Calculate</button>
-      <div class="result" id="result"></div>
-      <div class="notice">This calculator is only a quick estimate. Actual computation can differ depending on what items are discountable and how VAT is treated by the establishment.</div>
+  <div class="grid">
+    <button class="bigbtn primary" onclick="openPanel('qrpanel')"><span>▣</span>My QR</button>
+    <button class="bigbtn" onclick="openPanel('history')"><span>🧾</span>Transactions</button>
+    <button class="bigbtn" onclick="openPanel('benefits')"><span>%</span>Discount Guide</button>
+    <button class="bigbtn" onclick="openPanel('profile')"><span>👤</span>My Profile</button>
+  </div>
+
+  <section class="section">
+    <h2>Recent Transactions</h2>
+    <div id="recent"></div>
+  </section>
+
+  <section class="section">
+    <h2>For Sellers</h2>
+    <div class="card">
+      <strong>Simple workflow:</strong>
+      <div class="small" style="font-size:15px;margin-top:8px">
+        Scan QR → Verify Senior → Enter Purchase → Apply Discount → Confirm
+      </div>
+      <button class="action" style="margin-top:12px" onclick="openPanel('seller')">Open Seller Demo</button>
     </div>
   </section>
 
-  <section class="section" id="searchSection">
-    <h2>Quick item checker</h2>
-    <div class="calc">
-      <div class="search"><input id="searchInput" class="field" placeholder="Type: medicine, rice, meal..."/><button class="btn" onclick="searchItem()">Check</button></div>
-      <div id="searchResult" class="mini-list"></div>
-    </div>
-  </section>
+  <div class="footer">Demo prototype — Digital Senior Citizen Booklet</div>
+</main>
 </div>
 
-<div class="sheet" id="sheet" onclick="backdropClose(event)">
-  <div class="panel">
-    <button class="close" onclick="closeSheet()">×</button>
-    <div class="drag"></div>
-    <div id="panelContent"></div>
+<div class="panel" id="qrpanel">
+  <div class="panel-head"><button class="back" onclick="closePanel('qrpanel')">← Back</button><strong>My QR Code</strong></div>
+  <div class="panel-body">
+    <div class="qr">
+      <div class="qrbox"></div>
+      <div class="qrlabel">SC-2026-00125</div>
+      <div class="qrhelp">Show this QR at participating establishments.</div>
+    </div>
   </div>
 </div>
 
-<nav class="bottom"><div class="inner">
-  <button class="navbtn" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})"><span>🏠</span>Home</button>
-  <button class="navbtn" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})"><span>🧮</span>Calculator</button>
-  <button class="navbtn" onclick="document.getElementById('searchSection').scrollIntoView({behavior:'smooth'})"><span>🔎</span>Checker</button>
-</div></nav>
+<div class="panel" id="history">
+  <div class="panel-head"><button class="back" onclick="closePanel('history')">← Back</button><strong>Transaction History</strong></div>
+  <div class="panel-body" id="historyList"></div>
+</div>
+
+<div class="panel" id="benefits">
+  <div class="panel-head"><button class="back" onclick="closePanel('benefits')">← Back</button><strong>Discount Guide</strong></div>
+  <div class="panel-body">
+    <div class="option"><h3>Food / Restaurants</h3><div class="small">Show your digital booklet QR before payment.</div></div>
+    <div class="option"><h3>Medicines</h3><div class="small">Seller may ask for a valid prescription when required.</div></div>
+    <div class="option"><h3>Groceries / Basic Necessities</h3><div class="small">Eligible purchases may be recorded in your digital booklet.</div></div>
+    <div class="notice">The exact discount and documentary requirements should follow current Philippine laws, regulations, and local implementation rules.</div>
+  </div>
+</div>
+
+<div class="panel" id="profile">
+  <div class="panel-head"><button class="back" onclick="closePanel('profile')">← Back</button><strong>My Profile</strong></div>
+  <div class="panel-body">
+    <div class="option"><h3>Kimberly Daria</h3><div class="small">Senior Citizen ID: SC-2026-00125</div></div>
+    <div class="option"><h3>Status</h3><div class="tag">ACTIVE</div></div>
+    <div class="option"><h3>Emergency Contact</h3><div class="small">Tap to add or update in the full system.</div></div>
+  </div>
+</div>
+
+<div class="panel" id="seller">
+  <div class="panel-head"><button class="back" onclick="closePanel('seller')">← Back</button><strong>Seller Transaction</strong></div>
+  <div class="panel-body">
+    <div class="notice"><strong>Seller workflow:</strong> Scan → Verify → Enter Purchase → Apply Discount → Confirm.</div>
+    <div class="option">
+      <h3>1. Senior Verified</h3>
+      <div class="small">Kimberly Daria • SC-2026-00125 • ACTIVE</div>
+    </div>
+    <div class="option">
+      <h3>2. Transaction Type</h3>
+      <select id="type" class="input">
+        <option>Food / Restaurant</option>
+        <option>Medicine</option>
+        <option>Grocery / Basic Necessity</option>
+        <option>Other Eligible Purchase</option>
+      </select>
+    </div>
+    <div class="option">
+      <h3>3. Purchase Amount</h3>
+      <input id="amount" class="input" inputmode="decimal" placeholder="₱0.00" />
+    </div>
+    <div class="option">
+      <h3>4. Receipt / Invoice No.</h3>
+      <input id="receipt" class="input" placeholder="Enter receipt number" />
+    </div>
+    <button class="action" onclick="saveTransaction()">Confirm Transaction</button>
+    <button class="action secondary" style="margin-top:10px" onclick="closePanel('seller')">Cancel</button>
+  </div>
+</div>
 
 <script>
-const content={
-  food:{title:'Food & Meals',lead:'Use this section when paying for qualified meals in restaurants, cafés and similar establishments.',items:[
-    ['Ask for the senior discount','Tell the cashier before payment that the purchase is for a senior citizen.'],
-    ['Present valid proof','Show a Senior Citizen ID or another valid government-issued proof of age if accepted by the establishment.'],
-    ['For the senior’s own consumption','The discount generally applies to the senior citizen’s qualified share or personal consumption, not automatically to the whole group bill.'],
-    ['Keep the official receipt','Check that the discount is reflected before leaving.']
-  ]},
-  medicine:{title:'Medicines',lead:'Use this for pharmacy purchases, especially prescription medicines intended for the senior citizen.',items:[
-    ['Bring the prescription when required','Prescription medicines should have the senior citizen’s prescription when applicable.'],
-    ['Bring the senior ID','Present the Senior Citizen ID or accepted proof of age.'],
-    ['Senior citizen’s own medicine','The medicine should be for the senior citizen who is claiming the benefit.'],
-    ['Ask the pharmacist to show the computation','Review the receipt and confirm the applicable discount was deducted.']
-  ]},
-  grocery:{title:'Groceries & Basic Necessities',lead:'For qualified basic necessities and prime commodities, a separate statutory discount may apply subject to current rules and purchase limits.',items:[
-    ['Look for qualified items','Examples can include certain staple food and household essentials covered by current government rules.'],
-    ['Weekly limits may apply','The allowed discount can be subject to a maximum purchase amount or weekly ceiling under current regulations.'],
-    ['Bring your senior ID','The store may ask for the Senior Citizen ID and may record the purchase in a booklet, log or electronic system.'],
-    ['Check store implementation','Ask the customer service desk if you are unsure whether a specific item is covered.']
-  ]},
-  id:{title:'What to Present',lead:'These are the common documents establishments may ask for.',items:[
-    ['Senior Citizen ID','The primary proof commonly used to claim the benefit.'],
-    ['Other valid government ID','Some establishments may accept another valid ID showing the senior citizen’s age/date of birth.'],
-    ['Prescription','Needed for prescription medicines when applicable.'],
-    ['Authorization documents','If another person is purchasing on behalf of the senior, the establishment may ask for supporting authorization depending on current rules.']
-  ]},
-  tips:{title:'Before Paying',lead:'A simple checklist to avoid delays at the cashier.',items:[
-    ['Say you are availing the senior benefit before payment','This helps the cashier apply the correct transaction flow.'],
-    ['Separate the senior’s items when needed','Especially useful when only part of a group purchase is for the senior citizen.'],
-    ['Prepare the ID and prescription','Have them ready before reaching the counter.'],
-    ['Review the receipt','Confirm the discount before leaving the establishment.']
-  ]}
-};
-function openSheet(key){const c=content[key];document.getElementById('panelContent').innerHTML=`<h2>${c.title}</h2><div class="lead">${c.lead}</div>${c.items.map(i=>`<div class="item"><h4>${i[0]}</h4><p>${i[1]}</p><span class="tag">Quick Guide</span></div>`).join('')}<p class="notice">This app is designed as a practical guide. Exact eligibility, limits and required documents should follow the latest Philippine rules and the establishment’s lawful implementation.</p>`;document.getElementById('sheet').classList.add('open')}
-function closeSheet(){document.getElementById('sheet').classList.remove('open')}
-function backdropClose(e){if(e.target.id==='sheet')closeSheet()}
-function calculate(){const a=parseFloat(document.getElementById('amount').value)||0;const r=parseFloat(document.getElementById('rate').value)||0;const d=a*(r/100);const p=a-d;const out=document.getElementById('result');out.style.display='block';out.innerHTML=`Estimated discount: <strong>₱${d.toFixed(2)}</strong><br>Estimated amount after discount: <strong>₱${p.toFixed(2)}</strong>`}
-function searchItem(){const q=document.getElementById('searchInput').value.toLowerCase().trim();const el=document.getElementById('searchResult');if(!q){el.innerHTML='<div>Please type an item or category.</div>';return}let text='';if(/medicine|drug|tablet|capsule|prescription|pharmacy/.test(q))text='<div><strong>💊 Medicines:</strong> Check the Medicines section and prepare your Senior Citizen ID plus prescription when applicable.</div>';else if(/rice|bread|milk|grocery|basic|soap|necessit/.test(q))text='<div><strong>🛒 Grocery item:</strong> It may fall under basic necessities/prime commodities if covered by current rules and limits. Ask the store to verify the exact item.</div>';else if(/meal|food|restaurant|coffee|burger|chicken|pizza/.test(q))text='<div><strong>🍽️ Food/meal:</strong> Ask for the senior citizen discount before payment and present valid proof.</div>';else text='<div><strong>Not sure:</strong> Ask the establishment to verify whether this exact item is covered under the current senior citizen discount rules.</div>';el.innerHTML=text}
+const txs = [
+  {date:"Oct 6, 2026", store:"Community Pharmacy", type:"Medicine", amount:680, discount:136, receipt:"RX-20481"},
+  {date:"Oct 4, 2026", store:"Family Restaurant", type:"Food / Restaurant", amount:420, discount:84, receipt:"OR-10092"},
+  {date:"Oct 2, 2026", store:"Neighborhood Grocery", type:"Grocery / Basic Necessity", amount:350, discount:35, receipt:"GR-88712"}
+];
+
+function peso(n){return "₱"+Number(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
+function card(t){
+  return `<div class="card">
+    <div class="row">
+      <div><strong>${t.store}</strong><div class="small">${t.date} • ${t.type}</div><div class="small">Receipt: ${t.receipt}</div></div>
+      <div style="text-align:right"><div class="amount">${peso(t.amount)}</div><div class="tag">Saved ${peso(t.discount)}</div></div>
+    </div>
+  </div>`;
+}
+function render(){
+  document.getElementById("recent").innerHTML = txs.slice(0,3).map(card).join("");
+  document.getElementById("historyList").innerHTML = txs.map(card).join("");
+}
+function openPanel(id){document.getElementById(id).classList.add("active")}
+function closePanel(id){document.getElementById(id).classList.remove("active")}
+function saveTransaction(){
+  const amount = parseFloat((document.getElementById("amount").value||"0").replace(/[^\d.]/g,""));
+  if(!amount){alert("Please enter the purchase amount.");return}
+  const type=document.getElementById("type").value;
+  const receipt=document.getElementById("receipt").value || "DEMO-"+Math.floor(Math.random()*90000+10000);
+  const discount = type==="Grocery / Basic Necessity" ? amount*0.10 : amount*0.20;
+  txs.unshift({
+    date:new Date().toLocaleDateString("en-PH",{month:"short",day:"numeric",year:"numeric"}),
+    store:"Demo Establishment",
+    type, amount, discount, receipt
+  });
+  render();
+  alert("Transaction confirmed and saved to the digital booklet.");
+  closePanel("seller");
+}
+render();
 </script>
 </body>
 </html>
